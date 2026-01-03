@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563EB; /* Clear Blue 600 */
+  --color-primary-dark: #1D4ED8; /* Blue 700 for hover states */
+  --color-background-light: #FFFFFF; /* Pure White */
+  --color-background-dark: #0F172A; /* Slate 900 for Dark Mode */
+  --color-text-light: #1E293B; /* Slate 800 */
+  --color-text-dark: #F8FAFC; /* Slate 50 */
+  --color-subtext-light: #64748B; /* Slate 500 */
+  --color-subtext-dark: #94A3B8; /* Slate 400 */
+  --color-border-light: #E2E8F0; /* Slate 200 */
+  --color-border-dark: #334155; /* Slate 700 */
+
+  --font-display: var(--font-manrope);
+  --font-body: var(--font-noto-sans);
+
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --animate-fade-in-up: fade-in-up 0.5s ease-out;
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Custom utilities if needed */
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Base styles */
+body {
+  @apply bg-background-light text-text-light font-display antialiased transition-colors duration-200;
+}
+
+/* Dark mode support - relying on class strategy */
+.dark body {
+  @apply bg-background-dark text-text-dark;
+}
+
