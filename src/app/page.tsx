@@ -1,4 +1,5 @@
 import { Header } from "../components/Header";
+import { SupportForm } from "../components/SupportForm";
 import Link from "next/link";
 
 export default function Home() {
@@ -35,10 +36,15 @@ export default function Home() {
                 Explore Ecosystem
                 <span className="material-symbols-outlined ml-2">arrow_forward</span>
               </button>
-              <button className="flex cursor-pointer items-center justify-center rounded-full h-14 px-10 bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-semibold hover:bg-white/20 transition-all duration-300">
+              <a 
+                href="https://www.youtube.com/@bookelloTV/videos" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex cursor-pointer items-center justify-center rounded-full h-14 px-10 bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-semibold hover:bg-white/20 transition-all duration-300"
+              >
                 <span className="material-symbols-outlined mr-2">play_circle</span>
                 Watch Video
-              </button>
+              </a>
             </div>
           </div>
 
@@ -193,6 +199,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Support Form Section */}
+        <SupportForm />
       </main>
 
       {/* Footer */}
