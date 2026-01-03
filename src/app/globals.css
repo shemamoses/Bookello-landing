@@ -1,51 +1,76 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2563EB; /* Clear Blue 600 */
-  --color-primary-dark: #1D4ED8; /* Blue 700 for hover states */
-  --color-background-light: #FFFFFF; /* Pure White */
-  --color-background-dark: #0F172A; /* Slate 900 for Dark Mode */
-  --color-text-light: #1E293B; /* Slate 800 */
-  --color-text-dark: #F8FAFC; /* Slate 50 */
-  --color-subtext-light: #64748B; /* Slate 500 */
-  --color-subtext-dark: #94A3B8; /* Slate 400 */
-  --color-border-light: #E2E8F0; /* Slate 200 */
-  --color-border-dark: #334155; /* Slate 700 */
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-background-light: #FFFFFF;
+  --color-background-dark: #0F172A;
+  --color-text-light: #1E293B;
+  --color-text-dark: #F8FAFC;
+  --color-subtext-light: #64748B;
+  --color-subtext-dark: #94A3B8;
+  --color-border-light: #E2E8F0;
+  --color-border-dark: #334155;
 
   --font-display: var(--font-manrope);
   --font-body: var(--font-noto-sans);
 
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-
-  --animate-fade-in-up: fade-in-up 0.5s ease-out;
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-bounce: bounce 2s infinite;
 
   @keyframes fade-in-up {
     0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     100% {
       opacity: 1;
       transform: translateY(0);
     }
   }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-25%) translateX(-50%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0) translateX(-50%);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
 }
 
-/* Custom utilities if needed */
-@layer utilities {
-  .text-shadow-sm {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Base styles */
 body {
-  @apply bg-background-light text-text-light font-display antialiased transition-colors duration-200;
+  @apply bg-white text-slate-800 font-display antialiased;
 }
 
-/* Dark mode support - relying on class strategy */
-.dark body {
-  @apply bg-background-dark text-text-dark;
+/* Selection color */
+::selection {
+  background-color: #2563EB;
+  color: white;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
